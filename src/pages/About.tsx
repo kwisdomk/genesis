@@ -1,56 +1,14 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { Badge } from "@/components/ui/badge";
 
 const About = () => {
-  const timelineItems = [
-    {
-      icon: "🎓",
-      title: "Diploma in Computer Science",
-      description: "foundation in programming & IT."
-    },
-    {
-      icon: "🎓", 
-      title: "Bachelor's in Computer Science",
-      description: "deepening expertise at Zetech University."
-    },
-    {
-      icon: "🚀",
-      title: "IBM i3 Cybersecurity Bootcamp",
-      description: "advanced training, real-world labs."
-    },
-    {
-      icon: "🔬",
-      title: "Linux troubleshooting & forensics projects",
-      description: "building resilience & practical skills."
-    },
-    {
-      icon: "🤝",
-      title: "Community & mentorship",
-      description: "sharing, learning, and growing with peers."
-    }
-  ];
-
-  const values = [
-    {
-      icon: "🔍",
-      title: "Curiosity before mastery",
-      description: "keep learning, keep questioning."
-    },
-    {
-      icon: "⚖️",
-      title: "Integrity in technology",
-      description: "security without trust is meaningless."
-    },
-    {
-      icon: "🌱",
-      title: "Growth through struggle",
-      description: "every failure is a lesson."
-    },
-    {
-      icon: "🙏",
-      title: "Faith + community impact",
-      description: "technology should serve people."
-    }
+  const skills = [
+    { category: "Security", items: ["Penetration Testing", "Network Security", "Vulnerability Assessment", "Incident Response"] },
+    { category: "Systems", items: ["Linux Administration", "System Hardening", "Cloud Security", "Monitoring"] },
+    { category: "Development", items: ["Python", "JavaScript", "Database Design", "API Security"] },
+    { category: "Soft Skills", items: ["Technical Writing", "Problem Solving", "Continuous Learning", "Collaboration"] }
   ];
 
   return (
@@ -62,57 +20,89 @@ const About = () => {
           {/* Hero Section */}
           <section className="text-center mb-16 animate-fade-in">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="text-gradient">My Journey</span>
+              <span className="text-gradient">About Me</span>
             </h1>
             <div className="max-w-4xl mx-auto">
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Hello, I'm <span className="text-primary font-semibold">Wisdom</span> 👋. I'm an entry-to-intermediate IT professional passionate about cybersecurity, systems, and the philosophy of technology. My journey started with a Diploma and a Bachelor's in Computer Science, and has grown through hands-on labs, technical bootcamps, and countless experiments on Linux systems.
+              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+                Hello, I'm <span className="text-primary font-semibold">Wisdom</span> 👋. I'm a cybersecurity enthusiast and systems thinker passionate about the intersection of technology, security, and human behavior.
               </p>
             </div>
           </section>
 
-          {/* Timeline Section */}
+          {/* Bio Section */}
           <section className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-12">Timeline</h2>
             <div className="max-w-4xl mx-auto">
-              {timelineItems.map((item, index) => (
-                <div key={index} className="flex items-start mb-8 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-2xl mr-6">
-                    {item.icon}
+              <Card className="card-gradient">
+                <CardContent className="p-8">
+                  <h2 className="text-2xl font-bold mb-6 text-center text-gradient">Mission & Approach</h2>
+                  <div className="space-y-4 text-muted-foreground leading-relaxed">
+                    <p>
+                      My journey into cybersecurity began with a simple question: "How do we build systems that people can trust?" 
+                      This led me from computer science fundamentals through hands-on security labs, bootcamps, and countless hours 
+                      of self-directed learning.
+                    </p>
+                    <p>
+                      I believe cybersecurity is fundamentally about understanding human nature, not just technology. Every vulnerability 
+                      tells a story about how systems fail, how people make decisions under pressure, and how we can build more 
+                      resilient communities.
+                    </p>
+                    <p>
+                      Today, I focus on bridging the gap between technical security expertise and practical implementation, 
+                      always with an eye toward the philosophical implications of our digital choices.
+                    </p>
                   </div>
-                  <Card className="flex-1 card-gradient border-border/50 hover:border-primary/30 transition-smooth">
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold mb-2 text-primary">{item.title}</h3>
-                      <p className="text-muted-foreground">{item.description}</p>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
+                </CardContent>
+              </Card>
             </div>
           </section>
 
-          {/* Philosophy Section */}
-          <section>
-            <h2 className="text-3xl font-bold text-center mb-12">
-              <span className="text-gradient">Philosophy & Values</span>
-            </h2>
-            <p className="text-center text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-              Principles that guide me:
-            </p>
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {values.map((value, index) => (
-                <Card key={index} className="card-gradient border-border/50 hover:border-primary/30 transition-smooth hover:glow-primary animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <CardContent className="p-6 text-center">
-                    <div className="text-4xl mb-4">{value.icon}</div>
-                    <h3 className="text-xl font-semibold mb-2 text-primary">{value.title}</h3>
-                    <p className="text-muted-foreground">{value.description}</p>
+          {/* Skills Section */}
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold text-center mb-12">Skills & Expertise</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              {skills.map((skillGroup, index) => (
+                <Card key={index} className="project-card animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <CardContent className="p-6">
+                    <h3 className="font-semibold text-primary mb-4">{skillGroup.category}</h3>
+                    <div className="space-y-2">
+                      {skillGroup.items.map((skill, skillIndex) => (
+                        <Badge key={skillIndex} variant="outline" className="mr-2 mb-2 text-xs">
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
                   </CardContent>
                 </Card>
               ))}
             </div>
           </section>
+
+          {/* Personal Touch */}
+          <section className="animate-fade-in">
+            <Card className="max-w-4xl mx-auto bg-muted/20">
+              <CardContent className="p-8 text-center">
+                <h3 className="text-2xl font-bold mb-6 text-gradient">Beyond the Technical</h3>
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>
+                    When I'm not diving into security labs or writing code, you'll find me reading philosophy, 
+                    exploring the ethical implications of technology, or mentoring others in their tech journey.
+                  </p>
+                  <p>
+                    I believe that the best cybersecurity professionals are not just technical experts, but critical thinkers 
+                    who understand that every system serves people, and every security decision reflects our values about 
+                    privacy, trust, and human dignity.
+                  </p>
+                  <p className="text-primary font-medium">
+                    "Security is not just about protecting systems—it's about protecting what we value most as human beings."
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 };
