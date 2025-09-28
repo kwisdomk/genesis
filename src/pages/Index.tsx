@@ -1,41 +1,12 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingContact from "@/components/FloatingContact";
-import { Card, CardContent } from "@/components/ui/card";
+import LatestInsights from "@/components/LatestInsights";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, BookOpen, Code } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
-  const latestUpdates = [
-    {
-      type: "project",
-      title: "TryHackMe Labs: Advanced Penetration Testing",
-      date: "2024-12-15",
-      description: "Completed advanced network penetration labs focusing on privilege escalation techniques."
-    },
-    {
-      type: "blog",
-      title: "Why I See Cybersecurity as Philosophy",
-      date: "2024-12-10",
-      description: "Exploring the intersection of trust, power, and human behavior in security systems."
-    },
-    {
-      type: "learning",
-      title: "IBM i3 Cybersecurity Bootcamp",
-      date: "2024-12-01",
-      description: "Intensive training in real-world cybersecurity scenarios and incident response."
-    }
-  ];
-
-  const getIcon = (type: string) => {
-    switch (type) {
-      case "project": return <Code className="w-4 h-4" />;
-      case "blog": return <BookOpen className="w-4 h-4" />;
-      default: return <Calendar className="w-4 h-4" />;
-    }
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -70,41 +41,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Latest Updates Section */}
-      <section className="section-padding bg-muted/20 full-width-section">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
-              <span className="text-gradient">Latest Updates</span>
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {latestUpdates.map((update, index) => (
-                <Card key={index} className="project-card animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center space-x-2 text-primary">
-                        {getIcon(update.type)}
-                        <span className="text-sm font-medium capitalize">{update.type}</span>
-                      </div>
-                      <span className="text-xs text-muted-foreground">{update.date}</span>
-                    </div>
-                    <h3 className="font-semibold mb-2 text-foreground">{update.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{update.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            <div className="text-center mt-8">
-              <Button asChild variant="outline">
-                <Link to="/timeline">
-                  View Full Timeline
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Latest Insights Section */}
+      <LatestInsights />
 
       <Footer />
       <FloatingContact />
