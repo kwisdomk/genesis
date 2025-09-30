@@ -2,17 +2,19 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingContact from "@/components/FloatingContact";
 import LatestInsights from "@/components/LatestInsights";
+import CosmicBackground from "@/components/CosmicBackground";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <CosmicBackground />
       <Navigation />
       
       {/* Hero Section */}
-      <section className="section-padding pt-32">
+      <section className="section-padding pt-32 relative z-10">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">

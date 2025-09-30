@@ -45,13 +45,20 @@ All colors MUST be HSL.
     --glow-accent: 0 4px 20px hsl(142 76% 36% / 0.15);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
-    /* AI strip indicator */
-    --ai-strip-gradient: linear-gradient(90deg, 
-      hsl(210 100% 50%) 0%, 
-      hsl(180 100% 50%) 25%, 
-      hsl(142 76% 36%) 50%, 
-      hsl(180 100% 50%) 75%, 
-      hsl(210 100% 50%) 100%);
+    /* AI strip indicator - Light Mode */
+    --ai-strip-gradient-light: linear-gradient(90deg, 
+      hsl(210 80% 65%) 0%,
+      hsl(165 60% 70%) 25%,
+      hsl(180 55% 75%) 50%,
+      hsl(45 70% 75%) 75%,
+      hsl(210 80% 65%) 100%);
+    --ai-strip-glow-light: 0 6px 20px rgba(200, 200, 200, 0.2);
+    
+    /* Cosmic background - Light Mode */
+    --star-pastel-blue: 167 199 231;
+    --star-lavender: 201 182 228;
+    --star-muted-gold: 230 216 167;
+    --constellation-silver: 200 200 200;
     
     /* Section spacing */
     --section-padding: 4rem;
@@ -123,6 +130,22 @@ All colors MUST be HSL.
     --text-gradient: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(142 76% 36%) 100%);
     --glow-primary: 0 4px 20px hsl(210 100% 50% / 0.3);
     --glow-accent: 0 4px 20px hsl(142 76% 36% / 0.25);
+    
+    /* AI strip indicator - Dark Mode */
+    --ai-strip-gradient-dark: linear-gradient(90deg,
+      hsl(210 100% 55%) 0%,
+      hsl(165 100% 45%) 25%,
+      hsl(142 80% 45%) 50%,
+      hsl(0 100% 60%) 75%,
+      hsl(210 100% 55%) 100%);
+    --ai-strip-glow-dark: 0 6px 25px rgba(255, 255, 255, 0.15), 
+                          0 3px 15px rgba(33, 150, 243, 0.3);
+    
+    /* Cosmic background - Dark Mode */
+    --star-cyan: 46 156 160;
+    --star-purple: 110 91 170;
+    --star-white: 170 170 170;
+    --constellation-indigo: 100 110 150;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -184,21 +207,46 @@ All colors MUST be HSL.
   
   /* AI Strip Indicator */
   .ai-strip {
-    height: 4px;
-    background: var(--ai-strip-gradient);
+    height: 8px;
+    background: var(--ai-strip-gradient-light);
     background-size: 200% 100%;
-    animation: ai-pulse 3s ease-in-out infinite;
+    animation: ai-pulse 4s ease-in-out infinite;
+    box-shadow: var(--ai-strip-glow-light);
+    transition: background 0.8s ease-in-out, box-shadow 0.8s ease-in-out;
+  }
+  
+  .dark .ai-strip {
+    background: var(--ai-strip-gradient-dark);
+    box-shadow: var(--ai-strip-glow-dark);
   }
   
   @keyframes ai-pulse {
     0%, 100% {
       background-position: 0% 50%;
-      opacity: 0.6;
+      opacity: 0.85;
     }
     50% {
       background-position: 100% 50%;
       opacity: 1;
     }
+  }
+  
+  /* Cosmic Background */
+  .cosmic-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.15;
+    transition: opacity 0.5s ease;
+  }
+  
+  .cosmic-canvas {
+    width: 100%;
+    height: 100%;
   }
   
   /* Hover animations for project cards */
