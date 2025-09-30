@@ -1,4 +1,4 @@
-# Genesis – Personal Portfolio Website  
+   ```# Genesis – Personal Portfolio Website  
 
 🚀 **Genesis** is my evolving personal portfolio website.  
 It is built with **Lovable**, powered by **React + TypeScript + Vite + Tailwind + shadcn-ui**.  
