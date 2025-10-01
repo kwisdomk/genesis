@@ -45,14 +45,14 @@ All colors MUST be HSL.
     --glow-accent: 0 4px 20px hsl(46 67% 79% / 0.25);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
-    /* AI strip indicator - Light Mode */
-    --ai-strip-gradient-light: linear-gradient(90deg, 
-      hsl(210 80% 65%) 0%,
-      hsl(165 60% 70%) 25%,
-      hsl(180 55% 75%) 50%,
-      hsl(45 70% 75%) 75%,
-      hsl(210 80% 65%) 100%);
-    --ai-strip-glow-light: 0 6px 20px rgba(200, 200, 200, 0.2);
+  /* AI strip indicator - Light Mode (Google AI inspired) */
+  --ai-strip-gradient-light: linear-gradient(90deg, 
+    hsl(217 89% 61%) 0%,
+    hsl(262 52% 47%) 25%,
+    hsl(291 64% 42%) 50%,
+    hsl(217 89% 61%) 75%,
+    hsl(262 52% 47%) 100%);
+  --ai-strip-glow-light: 0 2px 8px rgba(100, 100, 100, 0.15);
     
     /* Cosmic background - Light Mode */
     --star-pastel-blue: 206 82% 91%; /* #A7C7E7 */
@@ -133,15 +133,17 @@ All colors MUST be HSL.
     --glow-primary: 0 4px 20px hsl(46 67% 79% / 0.4);
     --glow-accent: 0 4px 20px hsl(46 67% 79% / 0.3);
     
-    /* AI strip indicator - Dark Mode */
-    --ai-strip-gradient-dark: linear-gradient(90deg,
-      hsl(210 100% 55%) 0%,
-      hsl(165 100% 45%) 25%,
-      hsl(142 80% 45%) 50%,
-      hsl(0 100% 60%) 75%,
-      hsl(210 100% 55%) 100%);
-    --ai-strip-glow-dark: 0 6px 25px rgba(255, 255, 255, 0.15), 
-                          0 3px 15px rgba(33, 150, 243, 0.3);
+  /* AI strip indicator - Dark Mode (Google AI inspired with glow) */
+  --ai-strip-gradient-dark: linear-gradient(90deg,
+    hsl(217 91% 60%) 0%,
+    hsl(271 76% 53%) 20%,
+    hsl(291 78% 52%) 40%,
+    hsl(340 82% 52%) 60%,
+    hsl(217 91% 60%) 80%,
+    hsl(271 76% 53%) 100%);
+  --ai-strip-glow-dark: 0 8px 32px rgba(99, 102, 241, 0.4), 
+                        0 4px 16px rgba(168, 85, 247, 0.3),
+                        0 20px 60px rgba(99, 102, 241, 0.2);
     
     /* Cosmic background - Dark Mode */
     --star-cyan: 182 56% 48%; /* #2E9CA0 */
@@ -209,14 +211,15 @@ All colors MUST be HSL.
     margin-left: calc(50% - 50vw);
   }
   
-  /* AI Strip Indicator */
+  /* AI Strip Indicator - Google AI inspired */
   .ai-strip {
-    height: 8px;
+    height: 4px;
     background: var(--ai-strip-gradient-light);
-    background-size: 200% 100%;
-    animation: ai-pulse 4s ease-in-out infinite;
+    background-size: 300% 100%;
+    animation: ai-flow 8s linear infinite;
     box-shadow: var(--ai-strip-glow-light);
     transition: background 0.8s ease-in-out, box-shadow 0.8s ease-in-out;
+    position: relative;
   }
   
   .dark .ai-strip {
@@ -224,14 +227,28 @@ All colors MUST be HSL.
     box-shadow: var(--ai-strip-glow-dark);
   }
   
-  @keyframes ai-pulse {
-    0%, 100% {
+  /* Glow effect that falls onto page in dark mode */
+  .dark .ai-strip::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(180deg, 
+      rgba(99, 102, 241, 0.08) 0%,
+      rgba(168, 85, 247, 0.05) 30%,
+      transparent 100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  @keyframes ai-flow {
+    0% {
       background-position: 0% 50%;
-      opacity: 0.85;
     }
-    50% {
-      background-position: 100% 50%;
-      opacity: 1;
+    100% {
+      background-position: 300% 50%;
     }
   }
   
