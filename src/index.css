@@ -18,8 +18,8 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 210 100% 50%; /* Trust blue */
-    --primary-foreground: 0 0% 100%;
+    --primary: 46 67% 79%; /* Muted gold #E6D8A7 */
+    --primary-foreground: 0 0% 0%; /* Black text on gold */
 
     --secondary: 46 67% 79%; /* Muted gold #E6D8A7 */
     --secondary-foreground: 0 0% 0%; /* Black text on gold */
@@ -35,14 +35,14 @@ All colors MUST be HSL.
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 210 100% 50%;
+    --ring: 46 67% 79%;
 
     /* Custom design tokens - light theme */
-    --hero-gradient: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(142 76% 36%) 100%);
-    --card-gradient: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
-    --text-gradient: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(142 76% 36%) 100%);
-    --glow-primary: 0 4px 20px hsl(210 100% 50% / 0.15);
-    --glow-accent: 0 4px 20px hsl(142 76% 36% / 0.15);
+    --hero-gradient: linear-gradient(135deg, hsl(46 67% 79%) 0%, hsl(46 67% 65%) 100%);
+    --card-gradient: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+    --text-gradient: linear-gradient(135deg, hsl(46 67% 79%) 0%, hsl(46 67% 65%) 100%);
+    --glow-primary: 0 4px 20px hsl(46 67% 79% / 0.3);
+    --glow-accent: 0 4px 20px hsl(46 67% 79% / 0.25);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
     /* AI strip indicator - Light Mode */
@@ -101,8 +101,8 @@ All colors MUST be HSL.
     --popover: 0 0% 5%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 210 100% 50%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 46 67% 79%; /* Muted gold #E6D8A7 */
+    --primary-foreground: 0 0% 0%; /* Black text on gold */
 
     --secondary: 46 67% 79%; /* Muted gold #E6D8A7 for secondary accent */
     --secondary-foreground: 0 0% 0%; /* Black text on gold */
@@ -118,7 +118,7 @@ All colors MUST be HSL.
 
     --border: 0 0% 15%; /* Subtle border on black */
     --input: 0 0% 10%; /* Dark input fields */
-    --ring: 210 100% 50%;
+    --ring: 46 67% 79%;
     
     /* Status colors for project cards - dark theme */
     --success: 142 71% 45%;
@@ -127,11 +127,11 @@ All colors MUST be HSL.
     --warning-foreground: 0 0% 0%;
     
     /* Dark theme custom tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(142 76% 36%) 100%);
-    --card-gradient: linear-gradient(145deg, hsl(222.2 47.4% 11.2%) 0%, hsl(217.2 32.6% 17.5%) 100%);
-    --text-gradient: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(142 76% 36%) 100%);
-    --glow-primary: 0 4px 20px hsl(210 100% 50% / 0.3);
-    --glow-accent: 0 4px 20px hsl(142 76% 36% / 0.25);
+    --hero-gradient: linear-gradient(135deg, hsl(46 67% 79%) 0%, hsl(46 67% 65%) 100%);
+    --card-gradient: linear-gradient(145deg, hsl(0 0% 5%) 0%, hsl(0 0% 8%) 100%);
+    --text-gradient: linear-gradient(135deg, hsl(46 67% 79%) 0%, hsl(46 67% 65%) 100%);
+    --glow-primary: 0 4px 20px hsl(46 67% 79% / 0.4);
+    --glow-accent: 0 4px 20px hsl(46 67% 79% / 0.3);
     
     /* AI strip indicator - Dark Mode */
     --ai-strip-gradient-dark: linear-gradient(90deg,
