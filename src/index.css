@@ -9,20 +9,20 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Light theme - clean, airy layout */
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
+    --background: 0 0% 98%; /* Soft white to avoid glare */
+    --foreground: 0 0% 0%; /* Pure black text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 0 0% 0%; /* Black text on cards */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 0 0% 0%;
 
     --primary: 210 100% 50%; /* Trust blue */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 98%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 46 67% 79%; /* Muted gold #E6D8A7 */
+    --secondary-foreground: 0 0% 0%; /* Black text on gold */
 
     --muted: 210 40% 98%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -91,40 +91,40 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Dark theme - when toggle is enabled */
-    --background: 222.2 47.4% 11.2%;
-    --foreground: 210 40% 98%;
+    /* Dark theme - AMOLED black with white content */
+    --background: 0 0% 0%; /* Pure AMOLED black */
+    --foreground: 0 0% 100%; /* Pure white text */
 
-    --card: 222.2 47.4% 11.2%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 5%; /* Near-black cards for subtle depth */
+    --card-foreground: 0 0% 100%; /* White text on cards */
 
-    --popover: 222.2 47.4% 11.2%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
 
     --primary: 210 100% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 46 67% 79%; /* Muted gold #E6D8A7 for secondary accent */
+    --secondary-foreground: 0 0% 0%; /* Black text on gold */
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 10%; /* Subtle dark gray */
+    --muted-foreground: 0 0% 70%; /* Light gray text */
 
     --accent: 142 76% 36%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
+    --border: 0 0% 15%; /* Subtle border on black */
+    --input: 0 0% 10%; /* Dark input fields */
     --ring: 210 100% 50%;
     
     /* Status colors for project cards - dark theme */
     --success: 142 71% 45%;
-    --success-foreground: 210 40% 98%;
+    --success-foreground: 0 0% 100%;
     --warning: 38 92% 50%;
-    --warning-foreground: 222.2 47.4% 11.2%;
+    --warning-foreground: 0 0% 0%;
     
     /* Dark theme custom tokens */
     --hero-gradient: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(142 76% 36%) 100%);
