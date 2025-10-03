@@ -9,20 +9,20 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Light theme - clean, airy layout */
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
+    --background: 0 0% 98%; /* Soft white to avoid glare */
+    --foreground: 0 0% 0%; /* Pure black text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 0 0% 0%; /* Black text on cards */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 210 100% 50%; /* Trust blue */
-    --primary-foreground: 0 0% 100%;
+    --primary: 46 67% 79%; /* Muted gold #E6D8A7 */
+    --primary-foreground: 0 0% 0%; /* Black text on gold */
 
-    --secondary: 210 40% 98%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 46 67% 79%; /* Muted gold #E6D8A7 */
+    --secondary-foreground: 0 0% 0%; /* Black text on gold */
 
     --muted: 210 40% 98%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -35,23 +35,32 @@ All colors MUST be HSL.
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 210 100% 50%;
+    --ring: 46 67% 79%;
 
     /* Custom design tokens - light theme */
-    --hero-gradient: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(142 76% 36%) 100%);
-    --card-gradient: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
-    --text-gradient: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(142 76% 36%) 100%);
-    --glow-primary: 0 4px 20px hsl(210 100% 50% / 0.15);
-    --glow-accent: 0 4px 20px hsl(142 76% 36% / 0.15);
+    --hero-gradient: linear-gradient(135deg, hsl(46 67% 79%) 0%, hsl(46 67% 65%) 100%);
+    --card-gradient: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+    --text-gradient: linear-gradient(135deg, hsl(46 67% 79%) 0%, hsl(46 67% 65%) 100%);
+    --glow-primary: 0 4px 20px hsl(46 67% 79% / 0.3);
+    --glow-accent: 0 4px 20px hsl(46 67% 79% / 0.25);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
-    /* AI strip indicator */
-    --ai-strip-gradient: linear-gradient(90deg, 
-      hsl(210 100% 50%) 0%, 
-      hsl(180 100% 50%) 25%, 
-      hsl(142 76% 36%) 50%, 
-      hsl(180 100% 50%) 75%, 
-      hsl(210 100% 50%) 100%);
+  /* AI strip indicator - Light Mode (Gold theme complementary) */
+  --ai-strip-gradient-light: linear-gradient(90deg, 
+    hsl(46 67% 79%) 0%,      /* Muted Gold */
+    hsl(38 90% 70%) 25%,     /* Warm Amber */
+    hsl(25 75% 60%) 50%,     /* Rich Copper */
+    hsl(38 90% 70%) 75%,     /* Warm Amber */
+    hsl(46 67% 79%) 100%);   /* Muted Gold */
+  --ai-strip-glow-light: 0 2px 10px hsl(46 67% 79% / 0.3);
+    
+    /* Cosmic background - Light Mode */
+    --star-pastel-blue: 206 82% 91%; /* #A7C7E7 */
+    --star-lavender: 262 48% 88%; /* #C9B6E4 */
+    --star-muted-gold: 46 67% 79%; /* #E6D8A7 */
+    --constellation-silver: 0 0% 75%;
+    --heavenly-body-light: 220 20% 90%;
+    --cosmic-opacity-light: 0.12;
     
     /* Section spacing */
     --section-padding: 4rem;
@@ -82,47 +91,66 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Dark theme - when toggle is enabled */
-    --background: 222.2 47.4% 11.2%;
-    --foreground: 210 40% 98%;
+    /* Dark theme - AMOLED black with white content */
+    --background: 0 0% 0%; /* Pure AMOLED black */
+    --foreground: 0 0% 100%; /* Pure white text */
 
-    --card: 222.2 47.4% 11.2%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 5%; /* Near-black cards for subtle depth */
+    --card-foreground: 0 0% 100%; /* White text on cards */
 
-    --popover: 222.2 47.4% 11.2%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 210 100% 50%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 46 67% 79%; /* Muted gold #E6D8A7 */
+    --primary-foreground: 0 0% 0%; /* Black text on gold */
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 46 67% 79%; /* Muted gold #E6D8A7 for secondary accent */
+    --secondary-foreground: 0 0% 0%; /* Black text on gold */
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 10%; /* Subtle dark gray */
+    --muted-foreground: 0 0% 70%; /* Light gray text */
 
     --accent: 142 76% 36%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 210 100% 50%;
+    --border: 0 0% 15%; /* Subtle border on black */
+    --input: 0 0% 10%; /* Dark input fields */
+    --ring: 46 67% 79%;
     
     /* Status colors for project cards - dark theme */
     --success: 142 71% 45%;
-    --success-foreground: 210 40% 98%;
+    --success-foreground: 0 0% 100%;
     --warning: 38 92% 50%;
-    --warning-foreground: 222.2 47.4% 11.2%;
+    --warning-foreground: 0 0% 0%;
     
     /* Dark theme custom tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(142 76% 36%) 100%);
-    --card-gradient: linear-gradient(145deg, hsl(222.2 47.4% 11.2%) 0%, hsl(217.2 32.6% 17.5%) 100%);
-    --text-gradient: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(142 76% 36%) 100%);
-    --glow-primary: 0 4px 20px hsl(210 100% 50% / 0.3);
-    --glow-accent: 0 4px 20px hsl(142 76% 36% / 0.25);
+    --hero-gradient: linear-gradient(135deg, hsl(46 67% 79%) 0%, hsl(46 67% 65%) 100%);
+    --card-gradient: linear-gradient(145deg, hsl(0 0% 5%) 0%, hsl(0 0% 8%) 100%);
+    --text-gradient: linear-gradient(135deg, hsl(46 67% 79%) 0%, hsl(46 67% 65%) 100%);
+    --glow-primary: 0 4px 20px hsl(46 67% 79% / 0.4);
+    --glow-accent: 0 4px 20px hsl(46 67% 79% / 0.3);
+    
+  /* AI strip indicator - Dark Mode (Gold theme with enhanced glow) */
+  --ai-strip-gradient-dark: linear-gradient(90deg,
+    hsl(46 67% 79%) 0%,      /* Muted Gold */
+    hsl(38 95% 65%) 25%,     /* Vibrant Amber */
+    hsl(25 85% 55%) 50%,     /* Glowing Copper */
+    hsl(38 95% 65%) 75%,     /* Vibrant Amber */
+    hsl(46 67% 79%) 100%);   /* Muted Gold */
+  --ai-strip-glow-dark: 0 8px 32px hsl(46 67% 79% / 0.5), 
+                        0 4px 16px hsl(38 90% 65% / 0.4),
+                        0 20px 60px hsl(46 67% 79% / 0.3);
+    
+    /* Cosmic background - Dark Mode */
+    --star-cyan: 182 56% 48%; /* #2E9CA0 */
+    --star-purple: 254 29% 51%; /* #6E5BAA */
+    --star-white: 0 0% 67%; /* #AAAAAA */
+    --constellation-indigo: 225 20% 49%;
+    --heavenly-body-dark: 240 15% 25%;
+    --cosmic-opacity-dark: 0.15;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -182,22 +210,84 @@ All colors MUST be HSL.
     margin-left: calc(50% - 50vw);
   }
   
-  /* AI Strip Indicator */
+  /* AI Strip Indicator - Google AI inspired */
   .ai-strip {
     height: 4px;
-    background: var(--ai-strip-gradient);
-    background-size: 200% 100%;
-    animation: ai-pulse 3s ease-in-out infinite;
+    background: var(--ai-strip-gradient-light);
+    background-size: 300% 100%;
+    animation: ai-flow 8s linear infinite;
+    box-shadow: var(--ai-strip-glow-light);
+    transition: background 0.8s ease-in-out, box-shadow 0.8s ease-in-out;
+    position: relative;
   }
   
-  @keyframes ai-pulse {
-    0%, 100% {
+  .dark .ai-strip {
+    background: var(--ai-strip-gradient-dark);
+    box-shadow: var(--ai-strip-glow-dark);
+  }
+  
+  /* Glow effect that falls onto page in dark mode */
+  .dark .ai-strip::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(180deg, 
+      hsl(46 67% 79% / 0.08) 0%,
+      hsl(38 90% 65% / 0.05) 30%,
+      transparent 100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  @keyframes ai-flow {
+    0% {
       background-position: 0% 50%;
-      opacity: 0.6;
     }
-    50% {
-      background-position: 100% 50%;
-      opacity: 1;
+    100% {
+      background-position: 300% 50%;
+    }
+  }
+  
+  /* Cosmic Background */
+  .cosmic-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: var(--cosmic-opacity-light);
+    transition: opacity 0.8s ease-in-out;
+  }
+  
+  .dark .cosmic-background {
+    opacity: var(--cosmic-opacity-dark);
+  }
+  
+  .cosmic-canvas {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Static fallback for low performance */
+  .cosmic-background.static {
+    background: radial-gradient(ellipse at top, hsl(var(--star-pastel-blue) / 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, hsl(var(--star-lavender) / 0.03) 0%, transparent 50%);
+  }
+  
+  .dark .cosmic-background.static {
+    background: radial-gradient(ellipse at top, hsl(var(--star-cyan) / 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, hsl(var(--star-purple) / 0.05) 0%, transparent 50%);
+  }
+  
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .cosmic-background {
+      animation: none;
     }
   }
   
